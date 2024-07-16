@@ -1,37 +1,123 @@
 import { useState } from "react";
 import PersonalInfo from "./components/personalInfo";
+import Contact from "./components/Contacts";
+import Languages from "./components/Languages";
+import PreviewCV from "./components/cvPreview";
 import { v4 as uuidv4 } from "uuid";
+import { getFlagImg } from "./utilities/utilities.js";
 
 function App() {
-  const [data, setData] = useState({
-    info: [
-      {
-        id: uuidv4(),
-        name: "First Name",
-        text: "",
-      },
-    ],
-  });
+  const [info, setInfo] = useState([
+    {
+      id: uuidv4(),
+      name: "First Name",
+      text: "",
+    },
+    {
+      id: uuidv4(),
+      name: "Last Name",
+      text: "",
+    },
+    {
+      id: uuidv4(),
+      name: "Profession",
+      text: "",
+    },
+    {
+      id: uuidv4(),
+      name: "Little Description",
+      text: "",
+    },
+  ]);
 
-  function handleData(e) {
-    setData({
-      ...data,
-      info: data.info.map((ele) => {
+  const [contact, setContact] = useState([
+    {
+      id: uuidv4(),
+      name: "Email",
+      text: "",
+    },
+    {
+      id: uuidv4(),
+      name: "Telephone",
+      text: "",
+    },
+    {
+      id: uuidv4(),
+      name: "Address",
+      text: "",
+    },
+    {
+      id: uuidv4(),
+      name: "Linkedin",
+      text: "",
+    },
+    {
+      id: uuidv4(),
+      name: "GitHub",
+      text: "",
+    },
+  ]);
+
+  const [language, setLanguage] = useState([
+    {
+      id: uuidv4(),
+      language: "",
+      flag: ""
+    }
+  ])
+
+  function handleInfoData(e) {
+    setInfo(
+      info.map((ele) => {
         if (ele.id === e.target.dataset.id) ele.text = e.target.value;
         return ele;
-      }),
-    });
+      })
+    );
   }
-  console.log(data.info[0].text)
+
+  function handleContactData(e) {
+    setContact(
+      contact.map((ele) => {
+        if (ele.id === e.target.dataset.id) ele.text = e.target.value;
+        return ele;
+      })
+    );
+  }
+
+  async function chooseLang(e) {
+    const newLangArray = await Promise.all(language.map(async (ele) => {
+      if (ele.id === e.target.dataset.id) {
+        let parsedData = JSON.parse(e.target.value);
+        ele.language = parsedData.lang;
+        ele.flag = await getFlagImg(parsedData.country);
+      }
+      return ele;
+    }))
+    setLanguage(newLangArray);
+    
+  }
+
+  console.log(language)
+
+
   return (
     <>
+      {/* change the max and min w later  */}
       <div className="max-w-[800px]">
         <h1 className="text-3xl text-red-600 font-bold underline border-blue-400 text-center">
           Hello world!
         </h1>
-        <PersonalInfo data={data} onInput={handleData} />
+        <PersonalInfo data={info} onInput={handleInfoData} />
+        <Contact data={contact} onInput={handleContactData} />
+        <Languages data={language} chooseLang={chooseLang} />
       </div>
-      <div className="min-w-[800px]">previewCV</div>
+      <div className="min-w-[800px]">
+        previewCV
+        <PreviewCV 
+          info={info}
+          contact={contact}
+          language={language} />
+      </div>
     </>
   );
 }
