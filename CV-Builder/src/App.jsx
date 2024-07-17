@@ -2,6 +2,7 @@ import { useState } from "react";
 import PersonalInfo from "./components/personalInfo";
 import Contact from "./components/Contacts";
 import Languages from "./components/Languages";
+import Education from "./components/Education.jsx";
 import PreviewCV from "./components/cvPreview";
 import { v4 as uuidv4 } from "uuid";
 import { getFlagImg } from "./utilities/utilities.js";
@@ -66,6 +67,16 @@ function App() {
     }
   ])
 
+  const [education, setEducation] = useState([
+    {
+      id: uuidv4(),
+      schoolName: "",
+      course: "",
+      startDate: undefined,
+      endDate: undefined
+    }
+  ])
+
   function handleInfoData(e) {
     setInfo(
       info.map((ele) => {
@@ -97,8 +108,32 @@ function App() {
     
   }
 
-  console.log(language)
+  function addLanguage(e) {
+    e.preventDefault();
+    setLanguage([
+      ...language,
+      {
+        id: uuidv4(),
+        language: "",
+        flag: ""
+      }
+    ])
+  }
 
+  function handleEducation(e) {
+    setEducation(
+      education.map((edu) => {
+        if (edu.id === e.target.dataset.id) {
+          return {...edu,
+                  [e.target.name]: e.target.value,
+          }
+        }
+        return edu;
+      })
+    )
+  }
+
+console.log(education)
 
   return (
     <>
@@ -109,14 +144,16 @@ function App() {
         </h1>
         <PersonalInfo data={info} onInput={handleInfoData} />
         <Contact data={contact} onInput={handleContactData} />
-        <Languages data={language} chooseLang={chooseLang} />
+        <Languages data={language} chooseLang={chooseLang} addLang={addLanguage} />
+        <Education data={education} onInput={handleEducation} />
       </div>
       <div className="min-w-[800px]">
         previewCV
         <PreviewCV 
           info={info}
           contact={contact}
-          language={language} />
+          language={language}
+          education={education} />
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-export default function PreviewCV({info, contact, language}) {
+export default function PreviewCV({info, contact, language, education}) {
     let fullName = info[0].text + ' ' + info[1].text;
     let job = info[2].text;
     let description = info[3].text;
@@ -26,11 +26,29 @@ export default function PreviewCV({info, contact, language}) {
             </div>
             <div id="language">
                 <h2>Languages</h2>
-                <div className="flex gap-1">
-                    {/* <img src={language[0].flag} alt="" width={25} /> */}
-                    <div>{language[0].flag}</div>
-                    <div>{language[0].language}</div>
-                </div>
+                {language.map(lang => {
+                    return (
+                        <div className="flex gap-1" key={lang.id}>
+                        {/* <img src={language[0].flag} alt="" width={25} /> */}
+                        <div>{lang.flag}</div>
+                        <div>{lang.language}</div>
+                    </div>
+                    )
+                })}
+            </div>
+            <div id="education">
+                <h2>Education</h2>
+                {education.map(edu => {
+                    return (
+                        <div key={edu.id}>
+                            <div>{edu.schoolName}</div>
+                            <div>{edu.course}</div>
+                            <div>{edu.startDate}</div>
+                            <div>{edu.endDate}</div>
+                        </div>
+                    )
+                })
+                }
             </div>
         </div>
     )
