@@ -70,7 +70,7 @@ export default function Languages({ data, chooseLang, addLang }) {
       })}
       <form onSubmit={addLang}>
         <button type="submit" disabled={data.length >= 4}>
-          Add Lang
+          Add Language
         </button>
       </form>
     </div>

@@ -1,10 +1,11 @@
-export default function Education({ data, onInput }) {
+export default function Education({ data, onInput, addEdu }) {
   return (
     <div className="rounded-md px-6 py-4">
       <h2>Education</h2>
-      {data.map((edu) => {
+      {data.map((edu, index) => {
         return (
           <div key={edu.id}>
+            <h3>Education Achievement {index + 1}</h3>
             <input
               type="text"
               placeholder="School or University"
@@ -43,6 +44,9 @@ export default function Education({ data, onInput }) {
           </div>
         );
       })}
+      <form onSubmit={addEdu}>
+        <button type="submit" disabled={data.length >= 2}>Add Education</button>
+      </form>
     </div>
   );
 }

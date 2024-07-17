@@ -77,6 +77,18 @@ function App() {
     }
   ])
 
+  const [experience, setExperience] = useState([
+    {
+      id: uuidv4(),
+      jobName: "",
+      company: "",
+      description: "",
+      startDate: undefined,
+      endDate: undefined
+    }
+    // after cigarette do experience.jsx and write Handle logic
+  ])
+
   function handleInfoData(e) {
     setInfo(
       info.map((ele) => {
@@ -133,7 +145,20 @@ function App() {
     )
   }
 
-console.log(education)
+  function addEducation(e) {
+    e.preventDefault();
+    setEducation([
+      ...education,
+      {
+        id: uuidv4(),
+        schoolName: "",
+        course: "",
+        startDate: undefined,
+        endDate: undefined
+      }
+    ])
+  }
+
 
   return (
     <>
@@ -145,7 +170,7 @@ console.log(education)
         <PersonalInfo data={info} onInput={handleInfoData} />
         <Contact data={contact} onInput={handleContactData} />
         <Languages data={language} chooseLang={chooseLang} addLang={addLanguage} />
-        <Education data={education} onInput={handleEducation} />
+        <Education data={education} onInput={handleEducation} addEdu={addEducation} />
       </div>
       <div className="min-w-[800px]">
         previewCV
