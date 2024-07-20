@@ -1,4 +1,4 @@
-export default function PreviewCV({info, contact, language, education}) {
+export default function PreviewCV({info, contact, language, education, experience}) {
     let fullName = info[0].text + ' ' + info[1].text;
     let job = info[2].text;
     let description = info[3].text;
@@ -49,6 +49,20 @@ export default function PreviewCV({info, contact, language, education}) {
                     )
                 })
                 }
+            </div>
+            <div id="experience">
+                <h2>Experience</h2>
+                {experience.map(exp => {
+                    return (
+                        <div key={exp.id}>
+                            <div>{exp.jobName}</div>
+                            <div>{exp.company}</div>
+                            <div>{exp.description}</div>
+                            <div>{exp.startDate}</div>
+                            <div>{exp.endDate}</div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

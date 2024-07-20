@@ -2,7 +2,8 @@ import { useState } from "react";
 import PersonalInfo from "./components/personalInfo";
 import Contact from "./components/Contacts";
 import Languages from "./components/Languages";
-import Education from "./components/Education.jsx";
+import Education from "./components/Education";
+import Experience from "./components/Experience.jsx";
 import PreviewCV from "./components/cvPreview";
 import { v4 as uuidv4 } from "uuid";
 import { getFlagImg } from "./utilities/utilities.js";
@@ -159,7 +160,20 @@ function App() {
     ])
   }
 
+  function handleExperience(e) {
+    setExperience(
+      experience.map((exp) => {
+        if (exp.id === e.target.dataset.id) {
+          return {...exp,
+                  [e.target.name]: e.target.value,
+          }
+        }
+        return exp;
+      })
+    )
+  }
 
+  console.log(experience)
   return (
     <>
       {/* change the max and min w later  */}
@@ -171,6 +185,7 @@ function App() {
         <Contact data={contact} onInput={handleContactData} />
         <Languages data={language} chooseLang={chooseLang} addLang={addLanguage} />
         <Education data={education} onInput={handleEducation} addEdu={addEducation} />
+        <Experience data={experience} onInput={handleExperience}/>
       </div>
       <div className="min-w-[800px]">
         previewCV
@@ -178,7 +193,8 @@ function App() {
           info={info}
           contact={contact}
           language={language}
-          education={education} />
+          education={education}
+          experience={experience} />
       </div>
     </>
   );
