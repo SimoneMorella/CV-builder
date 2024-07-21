@@ -4,6 +4,7 @@ import Contact from "./components/Contacts";
 import Languages from "./components/Languages";
 import Education from "./components/Education";
 import Experience from "./components/Experience.jsx";
+import Skills from "./components/Skills.jsx";
 import PreviewCV from "./components/cvPreview";
 import { v4 as uuidv4 } from "uuid";
 import { getFlagImg } from "./utilities/utilities.js";
@@ -90,6 +91,13 @@ function App() {
     // after cigarette do experience.jsx and write Handle logic
   ])
 
+  const [skills, setSkills] = useState([
+    {
+      id: uuidv4(),
+      skillName: ""
+    }
+  ])
+
   function handleInfoData(e) {
     setInfo(
       info.map((ele) => {
@@ -173,6 +181,46 @@ function App() {
     )
   }
 
+  function addExperience(e) {
+    e.preventDefault();
+    setExperience([
+      ...experience,
+      {
+        id: uuidv4(),
+        jobName: "",
+        company: "",
+        description: "",
+        startDate: undefined,
+        endDate: undefined
+      }
+    ])
+  }
+
+  function handleSkills(e) {
+    setSkills(
+      skills.map((skill) => {
+        if (skill.id === e.target.dataset.id) {
+          return {
+            ...skill,
+            [e.target.name]: e.target.value
+          }
+        }
+        return skill
+      })
+    )
+  }
+
+  function addSkill(e) {
+    e.preventDefault();
+    setSkills([
+      ...skills,
+      {
+        id: uuidv4(),
+        skillName: ""
+      }
+    ])
+  }
+
   console.log(experience)
   return (
     <>
@@ -185,7 +233,8 @@ function App() {
         <Contact data={contact} onInput={handleContactData} />
         <Languages data={language} chooseLang={chooseLang} addLang={addLanguage} />
         <Education data={education} onInput={handleEducation} addEdu={addEducation} />
-        <Experience data={experience} onInput={handleExperience}/>
+        <Experience data={experience} onInput={handleExperience} addExp={addExperience}/>
+        <Skills data={skills} onInput={handleSkills} addSkill={addSkill}/>
       </div>
       <div className="min-w-[800px]">
         previewCV
@@ -194,7 +243,8 @@ function App() {
           contact={contact}
           language={language}
           education={education}
-          experience={experience} />
+          experience={experience}
+          skills={skills} />
       </div>
     </>
   );
