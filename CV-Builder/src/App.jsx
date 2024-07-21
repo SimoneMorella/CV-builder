@@ -98,6 +98,11 @@ function App() {
     }
   ])
 
+  const [profilePic, setProfilePic] = useState({
+    id: uuidv4(),
+    src: ""
+  })
+
   function handleInfoData(e) {
     setInfo(
       info.map((ele) => {
@@ -221,7 +226,14 @@ function App() {
     ])
   }
 
-  console.log(experience)
+  function handleProfilePic(e) {
+    setProfilePic({
+      ...profilePic,
+      src: URL.createObjectURL(e.target.files[0])
+    })
+  }
+
+  console.log(profilePic)
   return (
     <>
       {/* change the max and min w later  */}
@@ -229,7 +241,7 @@ function App() {
         <h1 className="text-3xl text-red-600 font-bold underline border-blue-400 text-center">
           Hello world!
         </h1>
-        <PersonalInfo data={info} onInput={handleInfoData} />
+        <PersonalInfo data={info} dataImg={profilePic} onInput={handleInfoData} addImg={handleProfilePic} />
         <Contact data={contact} onInput={handleContactData} />
         <Languages data={language} chooseLang={chooseLang} addLang={addLanguage} />
         <Education data={education} onInput={handleEducation} addEdu={addEducation} />
@@ -240,6 +252,7 @@ function App() {
         previewCV
         <PreviewCV 
           info={info}
+          profilePic={profilePic}
           contact={contact}
           language={language}
           education={education}

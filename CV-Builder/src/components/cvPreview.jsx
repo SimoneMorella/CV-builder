@@ -1,5 +1,6 @@
 export default function PreviewCV({
   info,
+  profilePic,
   contact,
   language,
   education,
@@ -14,9 +15,11 @@ export default function PreviewCV({
   let address = contact[2].text;
   let linkedin = contact[3].text;
   let github = contact[4].text;
+  let profilePicSrc = profilePic.src;
 
   return (
     <div>
+      <div id="profilePic" className="rounded-full w-40 h-40"><img src={profilePicSrc} alt="" /></div>
       <div id="personalInfo">
         <h2>Personal Info</h2>
         <div>{fullName}</div>
