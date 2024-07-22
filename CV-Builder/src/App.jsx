@@ -9,6 +9,7 @@ import PreviewCV from "./components/cvPreview";
 import { v4 as uuidv4 } from "uuid";
 import { getFlagImg } from "./utilities/utilities.js";
 
+
 function App() {
   const [info, setInfo] = useState([
     {
@@ -237,10 +238,24 @@ function App() {
   return (
     <>
       {/* change the max and min w later  */}
-      <div className="max-w-[800px]">
-        <h1 className="text-3xl text-red-600 font-bold underline border-blue-400 text-center">
-          Hello world!
-        </h1>
+      <div className="max-w-[800px] py-6 font-poppins flex flex-col gap-6">
+        <div className="rounded-md bg-copper px-6 py-4 text-white flex flex-col gap-1">
+          <div className="flex justify-between items-center">
+            <h1 className="text-3xl font-bold text-left">
+              ResuMe.<span className="font-light">cv</span>  
+            </h1>
+            <div className="flex gap-4 text-2xl ">
+            <button className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative"><i className='bx bxs-file-pdf relative left-[0.8px]'></i></button> 
+            <button className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative"><i className='bx bxs-user-detail relative left-[0.7px]'></i></button> 
+            </div>
+          </div>
+          <div className="flex rounded-xl self-center px-3 py-2 text-sm gap-1 bg-darkCop">
+            <span>SimoneMorella</span> 
+            <a href="https://github.com/SimoneMorella" className="transform hover:rotate-45 transition ease-out duration-300 flex items-center text-lg"><i className='bx bxl-github' id="gitico"></i></a>
+            <span>{new Date().getFullYear()}</span>
+          </div>
+        </div>
+
         <PersonalInfo data={info} dataImg={profilePic} onInput={handleInfoData} addImg={handleProfilePic} />
         <Contact data={contact} onInput={handleContactData} />
         <Languages data={language} chooseLang={chooseLang} addLang={addLanguage} />
