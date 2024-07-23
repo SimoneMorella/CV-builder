@@ -1,3 +1,5 @@
+import { motion, AnimatePresence } from 'framer-motion';
+
 export default function Languages({ data, chooseLang, addLang }) {
   // need to finish this by adding button to add more languages (max-3-4 idk)
 
@@ -5,13 +7,34 @@ export default function Languages({ data, chooseLang, addLang }) {
     return data.find((ele) => ele.language === language);
   }
 
+  function checkIndex(index) {
+    return index !== 0;
+  }
+
   return (
-    <div className="rounded-md px-6 py-4">
-      <h2>Languages</h2>
+    <div className="rounded-md px-6 py-5 bg-copper text-white flex flex-col gap-4">
+      <h2 className="flex gap-2 items-center text-2xl relative">
+        <i className='bx bx-world text-3xl'></i>
+        <span className="font-bold">Languages</span>
+        <form onSubmit={addLang} className='absolute right-0'>
+          <button 
+            type="submit" 
+            disabled={data.length >= 4} 
+            className='bg-white shadow-unpressed hover:shadow-pressed text-darkCop w-8 h-8 rounded-full text-2xl flex justify-center items-center disabled:bg-gray-400'>
+            <i className='bx bx-plus' ></i>
+          </button>
+      </form>
+      </h2>
+      <AnimatePresence>
       {data.map((lang, index) => {
         return (
-          <div key={lang.id}>
-            <h3>Language {index + 1}</h3>
+          <motion.div 
+          key={lang.id} 
+          initial={checkIndex(index) && {opacity: 0, translateY: "8px"}}
+          animate={checkIndex(index) && {opacity: 1, translateY: 0}}
+          transition={checkIndex(index) && {duration: 0.5}}
+          className="relative rounded-xl border-2 border-darkCop p-3">
+            <h3 className="absolute bottom-[38px] left-[10px] px-1 bg-copper">Language {index + 1}</h3>
             <select onChange={chooseLang} data-id={lang.id} defaultValue="">
               <option disabled value="">
                 Select a Language
@@ -65,14 +88,12 @@ export default function Languages({ data, chooseLang, addLang }) {
                 Japanese
               </option>
             </select>
-          </div>
+          </motion.div>
         );
       })}
-      <form onSubmit={addLang}>
-        <button type="submit" disabled={data.length >= 4}>
-          Add Language
-        </button>
-      </form>
+      </AnimatePresence>
+      
+
     </div>
   );
 }
