@@ -1,4 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import Select from 'react-select';
+// study react-select to see how to do the select and customize it!
 
 export default function Languages({ data, chooseLang, addLang }) {
   // need to finish this by adding button to add more languages (max-3-4 idk)
@@ -20,7 +22,7 @@ export default function Languages({ data, chooseLang, addLang }) {
           <button 
             type="submit" 
             disabled={data.length >= 4} 
-            className='bg-white shadow-unpressed hover:shadow-pressed text-darkCop w-8 h-8 rounded-full text-2xl flex justify-center items-center disabled:bg-gray-400'>
+            className='bg-white shadow-unpressed hover:shadow-pressed transition-transform duration-300 active:scale-75 text-darkCop w-14 h-8 rounded-lg text-2xl flex justify-center items-center disabled:bg-gray-400'>
             <i className='bx bx-plus' ></i>
           </button>
       </form>
@@ -33,9 +35,13 @@ export default function Languages({ data, chooseLang, addLang }) {
           initial={checkIndex(index) && {opacity: 0, translateY: "8px"}}
           animate={checkIndex(index) && {opacity: 1, translateY: 0}}
           transition={checkIndex(index) && {duration: 0.5}}
-          className="relative rounded-xl border-2 border-darkCop p-3">
-            <h3 className="absolute bottom-[38px] left-[10px] px-1 bg-copper">Language {index + 1}</h3>
-            <select onChange={chooseLang} data-id={lang.id} defaultValue="">
+          className="relative rounded-xl border-2 border-darkCop p-2">
+            <h3 className="absolute text-sm bottom-[52px] left-[10px] px-1 bg-copper">Language {index + 1}</h3>
+            <select 
+              onChange={chooseLang} 
+              data-id={lang.id} 
+              defaultValue=""
+              className='bg-darkCop text-white px-3 py-2 rounded-xl w-full'>
               <option disabled value="">
                 Select a Language
               </option>
