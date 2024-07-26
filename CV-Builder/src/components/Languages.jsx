@@ -72,7 +72,8 @@ export default function Languages({ data, chooseLang, addLang }) {
                 backgroundColor: "#283618",
                 border: "none",
                 color: "white",
-                boxShadow: "none"
+                boxShadow: "none",
+
                 
               }),
               menu: (provided) => ({

@@ -82,8 +82,6 @@ export default function Experience({ data, onInput, addExp }) {
                 className="row-span-2 col-span-2 resize-none p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus "
             ></textarea>
             </div>
-
-            
           </motion.div>
         );
       })}
