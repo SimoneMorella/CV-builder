@@ -16,8 +16,7 @@ export default function Education({ data, onInput, addEdu }) {
         <button 
           type="submit" 
           disabled={data.length >= 2}
-          className='bg-white shadow-unpressed hover:shadow-pressed transition-transform duration-300 active:scale-90 text-darkCop w-14 h-8 rounded-lg text-2xl flex justify-center items-center disabled:bg-gray-400'
-        >
+          className='bg-white shadow-unpressed hover:shadow-pressed transition-transform duration-300 active:scale-90 text-darkCop w-14 h-8 rounded-lg text-2xl flex justify-center items-center disabled:bg-gray-400'>
         <i className='bx bx-plus' ></i>
         </button>
       </form>
