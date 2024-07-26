@@ -30,7 +30,7 @@ export default function PersonalInfo({data, onInput, addImg}) {
                 <div className="flex justify-between gap-[9px] items-center">
                     <input 
                         type="text" 
-                        placeholder="Job Name"
+                        placeholder="Current / Aspiring Profession"
                         value={jobName.text}
                         data-id={jobName.id}
                         onChange={onInput}

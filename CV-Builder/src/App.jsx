@@ -9,6 +9,7 @@ import PreviewCV from "./components/cvPreview";
 import { v4 as uuidv4 } from "uuid";
 import { getFlagImg } from "./utilities/utilities.js";
 
+// focus later on the equilibrium between the two parts
 
 function App() {
   const [info, setInfo] = useState([
@@ -264,8 +265,7 @@ function App() {
         <Experience data={experience} onInput={handleExperience} addExp={addExperience}/>
         <Skills data={skills} onInput={handleSkills} addSkill={addSkill}/>
       </div>
-      <div className="min-w-[800px]">
-        previewCV
+      <div className="min-w-fit py-6 sticky top-0 h-fit">
         <PreviewCV 
           info={info}
           profilePic={profilePic}
