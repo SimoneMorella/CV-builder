@@ -122,10 +122,10 @@ function App() {
     );
   }
 
-  async function chooseLang(e) {
+  async function chooseLang(selectedOption, name) {
     const newLangArray = await Promise.all(language.map(async (ele) => {
-      if (ele.id === e.target.dataset.id) {
-        let parsedData = JSON.parse(e.target.value);
+      if (ele.id === name) {
+        let parsedData = JSON.parse(selectedOption.value);
         ele.language = parsedData.lang;
         ele.flag = await getFlagImg(parsedData.country);
       }
@@ -234,7 +234,6 @@ function App() {
     })
   }
 
-  console.log(profilePic)
   return (
     <>
       {/* change the max and min w later  */}
