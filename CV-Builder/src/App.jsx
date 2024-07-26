@@ -123,16 +123,18 @@ function App() {
   }
 
   async function chooseLang(selectedOption, name) {
-    const newLangArray = await Promise.all(language.map(async (ele) => {
-      if (ele.id === name) {
-        let parsedData = JSON.parse(selectedOption.value);
-        ele.language = parsedData.lang;
-        ele.flag = await getFlagImg(parsedData.country);
+    const parsedData = JSON.parse(selectedOption.value);
+    const newLangArray = await Promise.all(language.map(async (lang) => {
+      if (lang.id === name) {
+        return {
+          ...lang,
+          language: parsedData.lang,
+          flag: await getFlagImg(parsedData.country)
+        }
       }
-      return ele;
+      return lang;
     }))
     setLanguage(newLangArray);
-    
   }
 
   function addLanguage(e) {
