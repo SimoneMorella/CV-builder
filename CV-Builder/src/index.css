@@ -8,4 +8,38 @@
   border: 1px solid red;
 } */
 
+/* Assuming you have a CSS file for your styles */
+
+/* Custom Scrollbar Styles */
+.custom-select__menu-list::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.custom-select__menu-list::-webkit-scrollbar-track {
+  background: #283618; /* Background of the scrollbar track */
+}
+
+.custom-select__menu-list::-webkit-scrollbar-thumb {
+  background: #92998c; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+  border: 2px solid #283618;
+}
+
+.custom-select__menu-list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb on hover */
+}
+
+/* Hide the default number input spinner in Chrome, Safari, Edge, and Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide the default number input spinner in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
 
