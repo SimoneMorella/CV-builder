@@ -17,9 +17,15 @@ export default function PreviewCV({
   let github = contact[4].text;
   let profilePicSrc = profilePic.src;
 
+  //continue defining the cv and take measures from figma eh!
   return (
     <div className="bg-green-600 h-[29.7cm] w-[21cm]">
-      <div id="profilePic" className="rounded-full w-40 h-40"><img src={profilePicSrc} alt="" /></div>
+      <div id="header">
+        <div id="partial-to-header">
+          <div id="profilePic" className="rounded-full w-40 h-40"><img src={profilePicSrc} alt="" /></div>
+          
+        </div>
+      </div>
       <div id="personalInfo">
         <h2>Personal Info</h2>
         <div>{fullName}</div>
