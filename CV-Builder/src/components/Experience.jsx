@@ -32,7 +32,7 @@ export default function Experience({ data, onInput, addExp }) {
             transition={checkIndex(index) && {duration: 0.5}}
             className="relative rounded-xl border-2 border-darkCop px-8 py-[10px]">
             <h3 className="absolute text-sm top-[-12px] left-[10px] px-1 bg-copper">Position {index + 1}</h3>
-            <div id="inside-container" className="grid grid-col-2 grid-rows-4 gap-[9px]">
+            <div id="inside-container" className="grid grid-cols-2 grid-rows-4 gap-[9px]">
               <input
                 type="text"
                 placeholder="Profession"

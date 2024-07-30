@@ -2,8 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Select from 'react-select';
 // study react-select to see how to do the select and customize it!
 
-export default function Languages({ data, chooseLang, addLang }) {
-  // need to finish this by adding button to add more languages (max-3-4 idk)
+export default function Languages({ data, chooseLang, addLang, handleProficiency }) {
+
   const options = [
     {value: '{"country":"Italy", "lang":"Italian"}', label: "Italian"},
     {value: '{"country":"United States", "lang":"English"}', label: "English"},
@@ -15,6 +15,13 @@ export default function Languages({ data, chooseLang, addLang }) {
     {value: '{"country":"Japan", "lang":"Japanese"}', label: "Japanese"},
   ]
 
+  const langProficiency = [
+    {value: 'Elementary', label: "Elementary"},
+    {value: 'Conversational', label: "Conversational"},
+    {value: 'Professional', label: "Professional"},
+    {value: 'Native', label: "Native"}
+  ]
+
   
   
   
@@ -22,6 +29,9 @@ export default function Languages({ data, chooseLang, addLang }) {
     chooseLang(selectedOption, actionMeta.name)
   }
   
+  function handleProf(selectedOption, actionMeta) {
+    handleProficiency(selectedOption, actionMeta.name)
+  }
   
   function checkSelectedLang(option) {
     const selectedLanguage = JSON.parse(option.value).lang;
@@ -58,45 +68,92 @@ export default function Languages({ data, chooseLang, addLang }) {
           transition={checkIndex(index) && {duration: 0.5}}
           className="relative rounded-xl border-2 border-darkCop px-8 py-[10px]">
             <h3 className="absolute text-sm bottom-[50px] left-[10px] px-1 bg-copper">Language {index + 1}</h3>
-            <Select 
-            classNamePrefix="custom-select"
-            placeholder="Select a Language"
-            options={options}
-            onChange={handleChange} 
-            name={lang.id} 
-            value={options.find(option => JSON.parse(option.value).lang === lang.language)}
-            isOptionDisabled={checkSelectedLang}
-            styles={{
-              control: (provided) => ({
-                ...provided,
-                backgroundColor: "#283618",
-                border: "none",
-                color: "white",
-                boxShadow: "none",
+            <div className='flex gap-2'>
+              <Select 
+              className='w-[60%]'
+              classNamePrefix="custom-select"
+              placeholder="Select a Language"
+              options={options}
+              onChange={handleChange} 
+              name={lang.id} 
+              value={options.find(option => JSON.parse(option.value).lang === lang.language)}
+              isOptionDisabled={checkSelectedLang}
+              menuPortalTarget={document.body}
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  backgroundColor: "#283618",
+                  border: "none",
+                  color: "white",
+                  boxShadow: "none",               
+                }),
+                menu: (provided) => ({
+                  ...provided,
+                  backgroundColor: "#283618",
+                  borderRadius: "0.5rem",
+                  overflow: "hidden",
+                  position: "absolute",
+                  color: "white",
+                  
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: "white"
+                }),
+                option: (provided, state) => ({
+                  ...provided,
+                  backgroundColor: state.isSelected ? '#3C543C' : (state.isFocused ? '#38412e' : '#283618'),
+                  '&:active': {
+                    backgroundColor: '#3C543C', // Active background color
+                  },
 
-                
-              }),
-              menu: (provided) => ({
-                ...provided,
-                backgroundColor: "#283618",
-                borderRadius: "0.5rem",
-                overflow: "hidden"
-              }),
-              singleValue: (provided) => ({
-                ...provided,
-                color: "white"
-              }),
-              option: (provided, state) => ({
-                ...provided,
-                backgroundColor: state.isSelected ? '#3C543C' : (state.isFocused ? '#38412e' : '#283618'),
-                '&:active': {
-                  backgroundColor: '#3C543C', // Active background color
-                },
+                })
+              }}
+              />
+              <Select 
+              className='w-[40%]'
+              placeholder="Proficiency"
+              options={langProficiency}
+              classNamePrefix="custom-select"
+              menuPortalTarget={document.body}
+              value={langProficiency.find(proficiency => proficiency.value === lang.proficiency)}
+              isDisabled={lang.language === ""}
+              onChange={handleProf}
+              name={lang.id}
+              styles={{
+                control: (provided, state) => ({
+                  ...provided,
+                  backgroundColor: "#283618",
+                  border: "none",
+                  color: "white",
+                  boxShadow: "none",
+                  opacity: state.isDisabled ? 0.7 : 1            
+                }),
+                menu: (provided) => ({
+                  ...provided,
+                  backgroundColor: "#283618",
+                  borderRadius: "0.5rem",
+                  overflow: "hidden",
+                  position: "absolute",
+                  color: "white",
+                  
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: "white"
+                }),
+                option: (provided, state) => ({
+                  ...provided,
+                  backgroundColor: state.isSelected ? '#3C543C' : (state.isFocused ? '#38412e' : '#283618'),
+                  '&:active': {
+                    backgroundColor: '#3C543C', // Active background color
+                  },
 
-              })
-            }}
-            />
-
+                })
+              }}
+              />
+            </div>
+            
           </motion.div>
         );
       })}

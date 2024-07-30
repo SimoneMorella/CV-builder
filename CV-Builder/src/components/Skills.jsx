@@ -40,7 +40,7 @@ export default function Skills({data, onInput, addSkill}) {
                             opacity: { duration: 0.5 },
                             translateY: { duration: 0.5 },
                           }}
-                        className={`relative rounded-xl border-2 border-darkCop px-6 py-[10px] ${getColSpan(index, data.length)}`}>
+                        className={`relative rounded-xl border-2 border-darkCop px-8 py-[10px] ${getColSpan(index, data.length)}`}>
                             <h3 className="absolute text-sm top-[-10px] left-[10px] px-1 bg-copper">Skill {index + 1}</h3>
                             <input 
                                 type="text"

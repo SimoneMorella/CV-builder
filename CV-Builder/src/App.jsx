@@ -67,6 +67,7 @@ function App() {
     {
       id: uuidv4(),
       language: "",
+      proficiency: "",
       flag: ""
     }
   ])
@@ -135,6 +136,19 @@ function App() {
       }
       return lang;
     }))
+    setLanguage(newLangArray);
+  }
+
+  function handleLangProficiency(selectedOption, name) {
+    const newLangArray = language.map(lang => {
+      if (lang.id === name) {
+        return {
+          ...lang,
+          proficiency: selectedOption.value
+        }
+      }
+      return lang;
+    })
     setLanguage(newLangArray);
   }
 
@@ -237,10 +251,12 @@ function App() {
     })
   }
 
+  console.log(language)
+
   return (
     <>
       {/* change the max and min w later  */}
-      <div className="max-w-[800px] py-6 font-poppins flex flex-col gap-6">
+      <div className="max-w-[750px] py-6 font-poppins flex flex-col gap-6">
         <div className="rounded-md bg-copper px-6 py-4 text-white flex flex-col gap-1">
           <div className="flex justify-between items-center">
             <h1 className="text-3xl font-bold text-left">
@@ -260,7 +276,7 @@ function App() {
 
         <PersonalInfo data={info} dataImg={profilePic} onInput={handleInfoData} addImg={handleProfilePic} />
         <Contact data={contact} onInput={handleContactData} />
-        <Languages data={language} chooseLang={chooseLang} addLang={addLanguage} />
+        <Languages data={language} chooseLang={chooseLang} addLang={addLanguage} handleProficiency={handleLangProficiency}/>
         <Education data={education} onInput={handleEducation} addEdu={addEducation} />
         <Experience data={experience} onInput={handleExperience} addExp={addExperience}/>
         <Skills data={skills} onInput={handleSkills} addSkill={addSkill}/>
