@@ -89,22 +89,27 @@ export default function PreviewCV({
           </div>
         </div>
         <div className="border-l rounded-3xl h-auto border-[#E6E0E0]"></div>
-        <div id="rightCol" className="w-[65%]">
-          <div id="education">
-            <h2>Education</h2>
+        <div id="rightCol" className="w-[65%] flex flex-col gap-[70px] pl-9">
+          <div id="education" className="flex flex-col gap-4">
+            <h2 className="font-bold text-lg">Education</h2>
             {education.map((edu) => {
               return (
-                <div key={edu.id}>
-                  <div>{edu.schoolName}</div>
-                  <div>{edu.course}</div>
-                  <div>{edu.startDate}</div>
-                  <div>{edu.endDate}</div>
+                <div key={edu.id} className="rounded-xl flex gap-3 bg-copper bg-opacity-40 px-2 py-3">
+                  <div className="flex items-center"><i className='bx bxs-graduation p-2 rounded-full text-2xl bg-copper text-white'></i></div>
+                  <div>
+
+                    <div className="text-sm font-thin">{edu.startDate} ~ {edu.endDate}</div>
+                    <div className="font-bold">{edu.schoolName}</div>
+                    <div>{edu.course}</div>
+
+                  </div>
+
                 </div>
               );
             })}
           </div>
           <div id="experience">
-            <h2>Experience</h2>
+            <h2 className="font-bold text-lg">Experience</h2>
             {experience.map((exp) => {
               return (
                 <div key={exp.id}>
@@ -118,7 +123,7 @@ export default function PreviewCV({
             })}
           </div>
           <div id="skills">
-            <h2>Skills</h2>
+            <h2 className="font-bold text-lg">Skills</h2>
             {skills.map((skill) => {
                 return (
                     <div key={skill.id}>
