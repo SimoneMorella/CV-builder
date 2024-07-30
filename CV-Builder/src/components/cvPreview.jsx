@@ -19,19 +19,19 @@ export default function PreviewCV({
 
   //continue defining the cv and take measures from figma eh!
   return (
-    <div className="bg-green-600 h-[29.7cm] w-[21cm]">
-      <div id="header">
-        <div id="partial-to-header">
-          <div id="profilePic" className="rounded-full w-40 h-40"><img src={profilePicSrc} alt="" /></div>
-          
+    <div className=" h-[29.7cm] w-[21cm] px-9 font-jakarta">
+
+      <div id="header" className="w-full h-[120px]">
+        <div id="partial-to-header" className="border-4 border-yellow-900 flex gap-4">
+          <div id="profilePic" className="rounded-full w-[100px] h-[100px] translate-y-1/2"><img src={profilePicSrc} alt="" /></div>
+          <div id="personalInfo" className="translate-y-1/2 ">
+            <div>{fullName}</div>
+            <div>{job}</div>
+            <div>{description}</div>
+          </div>
         </div>
       </div>
-      <div id="personalInfo">
-        <h2>Personal Info</h2>
-        <div>{fullName}</div>
-        <div>{job}</div>
-        <div>{description}</div>
-      </div>
+
       <div id="contacts">
         <h2>Contacts</h2>
         <div>{email}</div>
