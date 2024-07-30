@@ -31,8 +31,9 @@ export default function PreviewCV({
       </div>
       <div id="RestContainer" className="flex gap-2 px-9">
         <div id="leftCol" className="w-[35%] flex flex-col gap-[70px] ">
-          <div id="description" className="italic font-light">
-              {description}
+          <div id="description" className="flex flex-col gap-4">
+              <h4 className="font-bold text-lg">Introduction:</h4>
+              <p className="italic font-light text-sm">{description}</p>
           </div>
           <div id="contacts" className="flex flex-col gap-4">
             <h2 className="font-bold text-lg">Contacts</h2>
@@ -72,14 +73,16 @@ export default function PreviewCV({
               </div>
             </div>
           </div>
-          <div id="language" className="flex flex-col gap-3">
-            <h2>Languages</h2>
+          <div id="language" className="flex flex-col gap-4">
+            <h2 className="font-bold text-lg">Languages</h2>
             {language.map((lang) => {
               return (
-                <div className="flex gap-1" key={lang.id}>
-                  {/* <img src={language[0].flag} alt="" width={25} /> */}
-                  <div>{lang.flag}</div>
-                  <div>{lang.language}</div>
+                <div className="text-sm flex gap-3 items-center" key={lang.id}>
+                  <div className="text-[17px]">{lang.flag}</div>
+                  <div className="flex flex-col gap-1">
+                    <h4>{lang.language}</h4>
+                    <p className="font-thin">{lang.proficiency}</p>
+                  </div>
                 </div>
               );
             })}
