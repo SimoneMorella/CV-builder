@@ -30,12 +30,12 @@ export default function PreviewCV({
         </div>
       </div>
       <div id="RestContainer" className="flex gap-2 px-9">
-        <div id="leftCol" className="w-[35%] flex flex-col gap-[70px] ">
-          <div id="description" className="flex flex-col gap-4">
+        <div id="leftCol" className="w-[35%] flex flex-col gap-[40px] pt-[20px] ">
+          <div id="description" className="flex flex-col gap-3">
               <h4 className="font-bold text-lg">Introduction:</h4>
               <p className="italic font-light text-sm">{description}</p>
           </div>
-          <div id="contacts" className="flex flex-col gap-4">
+          <div id="contacts" className="flex flex-col gap-3">
             <h2 className="font-bold text-lg">Contacts</h2>
             <div className="text-sm flex gap-3 items-center">
               <div><i className='bx bx-envelope p-1 rounded-xl pr-[3px] bg-copper text-white'></i></div>
@@ -89,7 +89,7 @@ export default function PreviewCV({
           </div>
         </div>
         <div className="border-l rounded-3xl h-auto border-[#E6E0E0]"></div>
-        <div id="rightCol" className="w-[65%] flex flex-col gap-[70px] pl-9">
+        <div id="rightCol" className="w-[65%] flex flex-col gap-[70px] pl-9 pt-[20px]">
           <div id="education" className="flex flex-col gap-4">
             <h2 className="font-bold text-lg">Education</h2>
             {education.map((edu) => {
