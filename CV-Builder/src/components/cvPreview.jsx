@@ -127,7 +127,7 @@ export default function PreviewCV({
             <div id="skills" className="grid grid-cols-3 gap-2 pt-3">
             {skills.map((skill) => {
                 return (
-                    <div key={skill.id} className="rounded-xl bg-copper bg-opacity-40 px-1 py-2 text-center font-semibold">
+                    <div key={skill.id} className="rounded-xl bg-copper bg-opacity-40 px-1 py-2 text-center text-sm font-semibold">
                       {skill.skillName}
                     </div>
                 )

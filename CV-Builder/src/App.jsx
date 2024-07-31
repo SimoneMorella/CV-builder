@@ -8,6 +8,7 @@ import Skills from "./components/Skills.jsx";
 import PreviewCV from "./components/cvPreview";
 import { v4 as uuidv4 } from "uuid";
 import { getFlagImg } from "./utilities/utilities.js";
+import SampleCV from "./components/SampleCV.jsx";
 
 // focus later on the equilibrium between the two parts
 
@@ -91,7 +92,6 @@ function App() {
       startDate: undefined,
       endDate: undefined
     }
-    // after cigarette do experience.jsx and write Handle logic
   ])
 
   const [skills, setSkills] = useState([
@@ -265,6 +265,16 @@ function App() {
     }
   }
 
+  function loadSampleCV() {
+    setInfo(SampleCV.info)
+    setContact(SampleCV.contact)
+    setLanguage(SampleCV.language)
+    setEducation(SampleCV.education)
+    setExperience(SampleCV.experience)
+    setSkills(SampleCV.skills)
+    setProfilePic(SampleCV.profilePic)
+  }
+
 
   return (
     <>
@@ -277,7 +287,11 @@ function App() {
             </h1>
             <div className="flex gap-4 text-2xl ">
             <button className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative"><i className='bx bxs-file-pdf relative left-[0.8px]'></i></button> 
-            <button className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative"><i className='bx bxs-user-detail relative left-[0.7px]'></i></button> 
+            <button 
+              onClick={loadSampleCV}
+              className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative">
+                <i className='bx bxs-user-detail relative left-[0.7px]'></i>
+              </button> 
             </div>
           </div>
           <div className="flex rounded-xl self-center px-3 py-2 text-sm gap-1 bg-darkCop">
