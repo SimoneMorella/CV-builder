@@ -49,6 +49,7 @@ export default function Skills({data, onInput, addSkill}) {
                                 data-id={skill.id}
                                 name="skillName"
                                 onChange={onInput}
+                                maxLength={17}
                                 className="p-3 rounded-xl w-full outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus"
                             />
                         </motion.div>

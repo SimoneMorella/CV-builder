@@ -22,7 +22,8 @@ export default function PreviewCV({
     <div className=" h-[29.7cm] w-[21cm]  font-jakarta text-rGrey shadow-resume">
       <div id="header" className="w-full mb-[100px]">
         <div id="partial-to-header" className="bg-copper flex gap-4 px-9">
-          <div id="profilePic" className="rounded-full w-[120px] h-[120px] translate-y-1/2 border-2 border-darkCop bg-darkCop"><img src={profilePicSrc} alt="" /></div>
+          <div id="profilePic" className="rounded-full w-[120px] h-[120px] translate-y-1/2 border-2 overflow-hidden border-darkCop bg-darkCop">
+          <img src={profilePicSrc} alt="" className="w-[100% + 1px] h-full object-cover" /></div>
           <div id="personalInfo" className="translate-y-2/3 flex flex-col gap-2">
             <div className="text-2xl text-white font-bold">{fullName}</div>
             <div className="font-light text-lg">{job}</div>
@@ -123,10 +124,10 @@ export default function PreviewCV({
           </div>
             <div>
             <h2 className="font-bold text-lg">Skills</h2>
-            <div id="skills" className="grid grid-cols-3 gap-3 pt-3">
+            <div id="skills" className="grid grid-cols-3 gap-2 pt-3">
             {skills.map((skill) => {
                 return (
-                    <div key={skill.id} className="rounded-xl bg-copper bg-opacity-40 p-2 text-center font-semibold">
+                    <div key={skill.id} className="rounded-xl bg-copper bg-opacity-40 px-1 py-2 text-center font-semibold">
                       {skill.skillName}
                     </div>
                 )

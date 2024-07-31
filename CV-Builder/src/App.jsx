@@ -103,7 +103,8 @@ function App() {
 
   const [profilePic, setProfilePic] = useState({
     id: uuidv4(),
-    src: ""
+    src: "",
+    error: ""
   })
 
   function handleInfoData(e) {
@@ -245,13 +246,25 @@ function App() {
   }
 
   function handleProfilePic(e) {
-    setProfilePic({
-      ...profilePic,
-      src: URL.createObjectURL(e.target.files[0])
-    })
+    console.log(e.target.files[0].size, e.target.files[0].type)
+    if (!e.target.files[0].type.startsWith("image/")) {
+      setProfilePic({
+        ...profilePic,
+        error: "The file selected is not in a valid image format!"
+      })
+    } else if (e.target.files[0].size > 20971520) {
+      setProfilePic({
+        ...profilePic,
+        error: "The file selected exceeds the maximum size of 20mb, please choose another image!"
+      })
+    } else {
+      setProfilePic({
+        ...profilePic,
+        src: URL.createObjectURL(e.target.files[0])
+      })
+    }
   }
 
-  console.log(language)
 
   return (
     <>
@@ -274,7 +287,7 @@ function App() {
           </div>
         </div>
 
-        <PersonalInfo data={info} dataImg={profilePic} onInput={handleInfoData} addImg={handleProfilePic} />
+        <PersonalInfo data={info} dataImg={profilePic} onInput={handleInfoData} addImg={handleProfilePic} profilePic={profilePic} />
         <Contact data={contact} onInput={handleContactData} />
         <Languages data={language} chooseLang={chooseLang} addLang={addLanguage} handleProficiency={handleLangProficiency}/>
         <Education data={education} onInput={handleEducation} addEdu={addEducation} />

@@ -40,6 +40,7 @@ export default function Experience({ data, onInput, addExp }) {
                 data-id={exp.id}
                 name="jobName"
                 onChange={onInput}
+                maxLength={20}
                 className="col-span-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus"
 
               />
@@ -50,6 +51,7 @@ export default function Experience({ data, onInput, addExp }) {
                 data-id={exp.id}
                 name="company"
                 onChange={onInput}
+                maxLength={16}
                 className="col-span-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus"
 
               />
@@ -60,6 +62,7 @@ export default function Experience({ data, onInput, addExp }) {
                 data-id={exp.id}
                 name="startDate"
                 onChange={onInput}
+                maxLength={4}
                 className="col-span-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus"
 
               />
@@ -70,6 +73,7 @@ export default function Experience({ data, onInput, addExp }) {
                 data-id={exp.id}
                 name="endDate"
                 onChange={onInput}
+                maxLength={4}
                 className="col-span-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus"
 
               />
@@ -79,6 +83,7 @@ export default function Experience({ data, onInput, addExp }) {
                 data-id={exp.id}
                 name="description"
                 onChange={onInput}
+                maxLength={175}
                 className="row-span-2 col-span-2 resize-none p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus "
             ></textarea>
             </div>

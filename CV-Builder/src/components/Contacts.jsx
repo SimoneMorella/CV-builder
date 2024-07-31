@@ -18,6 +18,7 @@ export default function Contact({data, onInput}) {
                     value={email.text}
                     data-id={email.id}
                     onChange={onInput}
+                    maxLength={28}
                     className="flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                 <input 
                     type="number" 
@@ -25,6 +26,7 @@ export default function Contact({data, onInput}) {
                     value={number.text}
                     data-id={number.id}
                     onChange={onInput}
+                    maxLength={26}
                     className="[&::-webkit-inner-spin-button]:appearance-none flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                 <input 
                     type="text" 
@@ -32,6 +34,7 @@ export default function Contact({data, onInput}) {
                     value={address.text}
                     data-id={address.id}
                     onChange={onInput}
+                    maxLength={30}
                     className="flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                 <div className="flex justify-between gap-[9px] items-center">
                     <input
@@ -40,6 +43,7 @@ export default function Contact({data, onInput}) {
                         value={linkedin.text}
                         data-id={linkedin.id}
                         onChange={onInput}
+                        maxLength={35}
                         className="flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                     <input
                         type="text" 
@@ -47,6 +51,7 @@ export default function Contact({data, onInput}) {
                         value={github.text}
                         data-id={github.id}
                         onChange={onInput}
+                        maxLength={35}
                         className="flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                 </div>
             </div>

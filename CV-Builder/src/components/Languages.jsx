@@ -103,8 +103,9 @@ export default function Languages({ data, chooseLang, addLang, handleProficiency
                 option: (provided, state) => ({
                   ...provided,
                   backgroundColor: state.isSelected ? '#3C543C' : (state.isFocused ? '#38412e' : '#283618'),
+                  color: state.isDisabled ? "#898989" : "white",
                   '&:active': {
-                    backgroundColor: '#3C543C', // Active background color
+                    backgroundColor: '#3C543C',
                   },
 
                 })

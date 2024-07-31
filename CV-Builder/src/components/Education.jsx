@@ -39,6 +39,7 @@ export default function Education({ data, onInput, addEdu }) {
                 name="schoolName"
                 value={edu.schoolName}
                 onChange={onInput}
+                maxLength={47}
                 className="p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus"
               />
               <input
@@ -48,6 +49,7 @@ export default function Education({ data, onInput, addEdu }) {
                 name="course"
                 value={edu.course}
                 onChange={onInput}
+                maxLength={48}
                 className="p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus"
               />
               <input
@@ -57,6 +59,7 @@ export default function Education({ data, onInput, addEdu }) {
                 name="startDate"
                 value={edu.startDate}
                 onChange={onInput}
+                maxLength={4}
                 className="p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus"
               />
               <input
@@ -66,6 +69,7 @@ export default function Education({ data, onInput, addEdu }) {
                 name="endDate"
                 value={edu.endDate}
                 onChange={onInput}
+                maxLength={4}
                 className="p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus"
               />
             </div>
