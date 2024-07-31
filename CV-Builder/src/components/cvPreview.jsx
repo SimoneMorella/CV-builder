@@ -73,7 +73,7 @@ export default function PreviewCV({
               </div>
             </div>
           </div>
-          <div id="language" className="flex flex-col gap-4">
+          <div id="language" className="flex flex-col gap-3">
             <h2 className="font-bold text-lg">Languages</h2>
             {language.map((lang) => {
               return (
@@ -89,48 +89,49 @@ export default function PreviewCV({
           </div>
         </div>
         <div className="border-l rounded-3xl h-auto border-[#E6E0E0]"></div>
-        <div id="rightCol" className="w-[65%] flex flex-col gap-[70px] pl-9 pt-[20px]">
-          <div id="education" className="flex flex-col gap-4">
+        <div id="rightCol" className="w-[65%] flex flex-col gap-[40px] pl-9 pt-[20px]">
+          <div id="education" className="flex flex-col gap-3">
             <h2 className="font-bold text-lg">Education</h2>
             {education.map((edu) => {
               return (
                 <div key={edu.id} className="rounded-xl flex gap-3 bg-copper bg-opacity-40 px-2 py-3">
                   <div className="flex items-center"><i className='bx bxs-graduation p-2 rounded-full text-2xl bg-copper text-white'></i></div>
                   <div>
-
                     <div className="text-sm font-thin">{edu.startDate} ~ {edu.endDate}</div>
                     <div className="font-bold">{edu.schoolName}</div>
                     <div>{edu.course}</div>
-
                   </div>
 
                 </div>
               );
             })}
           </div>
-          <div id="experience">
+          <div id="experience" className="flex flex-col gap-3">
             <h2 className="font-bold text-lg">Experience</h2>
             {experience.map((exp) => {
               return (
-                <div key={exp.id}>
-                  <div>{exp.jobName}</div>
-                  <div>{exp.company}</div>
-                  <div>{exp.description}</div>
-                  <div>{exp.startDate}</div>
-                  <div>{exp.endDate}</div>
+                <div key={exp.id} className="rounded-xl flex gap-3 bg-copper bg-opacity-40 px-2 py-3">
+                  <div className="flex items-center"><i className='bx bx-briefcase p-2 rounded-full text-2xl bg-copper text-white'></i></div>
+                  <div className="pr-2">
+                    <div className="text-sm font-thin">{exp.startDate} ~ {exp.endDate}</div>
+                    <div className="font-bold">{exp.jobName} <span className="font-light">&nbsp; at &nbsp;</span> {exp.company}</div>
+                    <div>{exp.description}</div>
+                  </div>
                 </div>
               );
             })}
           </div>
-          <div id="skills">
+            <div>
             <h2 className="font-bold text-lg">Skills</h2>
+            <div id="skills" className="grid grid-cols-3 gap-3 pt-3">
             {skills.map((skill) => {
                 return (
-                    <div key={skill.id}>
-                        <div>{skill.skillName}</div>
+                    <div key={skill.id} className="rounded-xl bg-copper bg-opacity-40 p-2 text-center font-semibold">
+                      {skill.skillName}
                     </div>
                 )
             })}
+          </div>
           </div>
         </div>
       </div>
