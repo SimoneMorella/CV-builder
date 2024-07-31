@@ -8,6 +8,7 @@ import Skills from "./components/Skills.jsx";
 import PreviewCV from "./components/cvPreview";
 import { v4 as uuidv4 } from "uuid";
 import { getFlagImg } from "./utilities/utilities.js";
+import { Tooltip } from "react-tooltip";
 import SampleCV from "./components/SampleCV.jsx";
 
 // focus later on the equilibrium between the two parts
@@ -286,19 +287,48 @@ function App() {
               ResuMe.<span className="font-light">cv</span>  
             </h1>
             <div className="flex gap-4 text-2xl ">
-            <button className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative"><i className='bx bxs-file-pdf relative left-[0.8px]'></i></button> 
+            <button 
+              data-tooltip-id="PDFDownload"
+              data-tooltip-content="Download Resume in PDF"
+              data-tooltip-place="bottom"
+              className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative transition active:shadow-pressed active:scale-95 hover:shadow-pressed"
+              ><i className='bx bxs-file-pdf relative left-[0.8px]'></i>
+              <Tooltip 
+                id="PDFDownload" 
+                style={{
+                  fontSize: "12px",
+                  padding: "6px 8px",
+                  backgroundColor: "#283618",
+                  borderRadius: "10px"
+                  }}
+                  opacity={0.9}
+                   />
+            </button> 
             <button 
               onClick={loadSampleCV}
-              className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative">
+              data-tooltip-id="sampleData"
+              data-tooltip-content="Use Example Data"
+              data-tooltip-place="bottom"
+              className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative transition active:shadow-pressed active:scale-95 hover:shadow-pressed">
                 <i className='bx bxs-user-detail relative left-[0.7px]'></i>
+                <Tooltip 
+                id="sampleData" 
+                style={{
+                  fontSize: "12px",
+                  padding: "6px 8px",
+                  backgroundColor: "#283618",
+                  borderRadius: "10px"
+                  }}
+                  opacity={0.9}
+                   />
               </button> 
             </div>
           </div>
-          <div className="flex rounded-xl self-center px-3 py-2 text-sm gap-1 bg-darkCop">
-            <span>SimoneMorella</span> 
-            <a href="https://github.com/SimoneMorella" className="transform hover:rotate-45 transition ease-out duration-300 flex items-center text-lg"><i className='bx bxl-github' id="gitico"></i></a>
-            <span>{new Date().getFullYear()}</span>
-          </div>
+            <div className="flex rounded-xl px-3 py-2 self-center text-sm gap-1 bg-darkCop">
+              <span>SimoneMorella</span> 
+              <a href="https://github.com/SimoneMorella" className="transform hover:rotate-45 transition ease-out duration-300 flex items-center text-lg"><i className='bx bxl-github' id="gitico"></i></a>
+              <span>{new Date().getFullYear()}</span>
+            </div>
         </div>
 
         <PersonalInfo data={info} dataImg={profilePic} onInput={handleInfoData} addImg={handleProfilePic} profilePic={profilePic} />

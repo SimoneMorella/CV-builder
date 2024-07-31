@@ -42,7 +42,7 @@ export default function PersonalInfo({data, onInput, addImg, profilePic}) {
                     <div>
                         <label 
                             htmlFor="file"
-                            className="flex-1 p-3 flex gap-1 items-center bg-white text-darkCop font-semibold rounded-xl cursor-pointer shadow-unpressed hover:shadow-pressed"
+                            className="flex-1 p-3 flex gap-1 items-center bg-white text-darkCop font-semibold rounded-xl cursor-pointer transition shadow-unpressed active:shadow-pressed active:scale-95 hover:shadow-pressed"
                         >
                             <i className='bx bxs-image-add text-2xl'></i>
                             <span>Add profile pic</span>

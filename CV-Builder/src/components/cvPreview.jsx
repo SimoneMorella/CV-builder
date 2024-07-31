@@ -20,7 +20,7 @@ export default function PreviewCV({
   //continue defining the cv and take measures from figma eh!
   return (
     <div className=" h-[29.7cm] w-[21cm]  font-jakarta text-rGrey shadow-resume">
-      <div id="header" className="w-full mb-[100px]">
+      <div id="header" className="w-full mb-[70px]">
         <div id="partial-to-header" className="bg-copper flex gap-4 px-9">
           <div id="profilePic" className="rounded-full w-[120px] h-[120px] translate-y-1/2 border-2 overflow-hidden border-darkCop bg-darkCop">
           <img src={profilePicSrc} alt="" className="w-[100% + 1px] h-full object-cover" /></div>
@@ -31,7 +31,7 @@ export default function PreviewCV({
         </div>
       </div>
       <div id="RestContainer" className="flex gap-2 px-9">
-        <div id="leftCol" className="w-[35%] flex flex-col gap-[40px] pt-[20px] ">
+        <div id="leftCol" className="w-[35%] flex flex-col gap-[40px] py-[20px] ">
           <div id="description" className="flex flex-col gap-3">
               <h4 className="font-bold text-lg">Introduction:</h4>
               <p className="italic font-light text-sm">{description}</p>
@@ -90,7 +90,7 @@ export default function PreviewCV({
           </div>
         </div>
         <div className="border-l rounded-3xl h-auto border-[#E6E0E0]"></div>
-        <div id="rightCol" className="w-[65%] flex flex-col gap-[40px] pl-9 pt-[20px]">
+        <div id="rightCol" className="w-[65%] flex flex-col gap-[40px] pl-9 py-[20px]">
           <div id="education" className="flex flex-col gap-3">
             <h2 className="font-bold text-lg">Education</h2>
             {education.map((edu) => {
