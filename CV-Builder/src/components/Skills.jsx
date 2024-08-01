@@ -14,7 +14,7 @@ export default function Skills({data, onInput, addSkill}) {
     }
 
     return (
-        <div className="rounded-md px-6 py-5 bg-copper text-white flex flex-col gap-4">
+        <div className="rounded-md px-6 py-5 bg-copper text-white flex flex-col gap-4 w-full">
             <h2 className="flex gap-2 items-center text-2xl relative">
                 <i className='bx bx-bulb text-3xl' ></i>
                 <span className="font-bold">Skills</span>

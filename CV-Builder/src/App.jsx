@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PersonalInfo from "./components/personalInfo";
 import Contact from "./components/Contacts";
 import Languages from "./components/Languages";
@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 import { getFlagImg } from "./utilities/utilities.js";
 import { Tooltip } from "react-tooltip";
 import SampleCV from "./components/SampleCV.jsx";
+import { useReactToPrint } from "react-to-print";
 
 // focus later on the equilibrium between the two parts
 
@@ -276,12 +277,16 @@ function App() {
     setProfilePic(SampleCV.profilePic)
   }
 
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({ content: () => componentRef.current,
+                                        documentTitle: `${info[0].text} ${info[1].text}'s Resume`
+    })
 
   return (
     <>
       {/* change the max and min w later  */}
-      <div className="max-w-[750px] py-6 font-poppins flex flex-col gap-6">
-        <div className="rounded-md bg-copper px-6 py-4 text-white flex flex-col gap-1">
+      <div className="max-w-full 2xl:max-w-[750px] px-6 py-6 font-poppins flex flex-col gap-6">
+        <div className="rounded-md bg-copper px-6 py-4 text-white flex flex-col w-full gap-1">
           <div className="flex justify-between items-center">
             <h1 className="text-3xl font-bold text-left">
               ResuMe.<span className="font-light">cv</span>  
@@ -291,6 +296,7 @@ function App() {
               data-tooltip-id="PDFDownload"
               data-tooltip-content="Download Resume in PDF"
               data-tooltip-place="bottom"
+              onClick={handlePrint}
               className="rounded-full bg-darkCop p-[9px] flex justify-center items-center relative transition active:shadow-pressed active:scale-95 hover:shadow-pressed"
               ><i className='bx bxs-file-pdf relative left-[0.8px]'></i>
               <Tooltip 
@@ -338,7 +344,7 @@ function App() {
         <Experience data={experience} onInput={handleExperience} addExp={addExperience}/>
         <Skills data={skills} onInput={handleSkills} addSkill={addSkill}/>
       </div>
-      <div className="min-w-fit py-6 sticky top-0 h-fit">
+      <div className="py-6 static 2xl:sticky top-0 h-fit scale-[0.49] sm:scale-75 md:scale-[0.85] lg:scale-100 ">
         <PreviewCV 
           info={info}
           profilePic={profilePic}
@@ -346,7 +352,8 @@ function App() {
           language={language}
           education={education}
           experience={experience}
-          skills={skills} />
+          skills={skills}
+          reference={componentRef} />
       </div>
     </>
   );

@@ -12,7 +12,7 @@ export default function PersonalInfo({data, onInput, addImg, profilePic}) {
                 {profilePic.error !== "" && <div className="ml-auto text-sm rounded-xl bg-darkCop px-4 py-1 text-[#FF4C4C]">{profilePic.error}</div>}
             </h2>
             <div className="flex flex-col gap-[9px]">
-                <div className="flex justify-between gap-[9px] items-center">
+                <div className="flex gap-[9px] items-center">
                 <input 
                     type="text" 
                     placeholder="First Name"
@@ -20,7 +20,7 @@ export default function PersonalInfo({data, onInput, addImg, profilePic}) {
                     data-id={firstName.id}
                     onChange={onInput}
                     maxLength={15}
-                    className="flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
+                    className="w-full p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                 <input 
                     type="text" 
                     placeholder="Last Name"
@@ -28,7 +28,7 @@ export default function PersonalInfo({data, onInput, addImg, profilePic}) {
                     data-id={lastName.id}
                     onChange={onInput}
                     maxLength={20}
-                    className="flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
+                    className="w-full p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                 </div>
                 <div className="flex justify-between gap-[9px] items-center">
                     <input 
@@ -38,11 +38,11 @@ export default function PersonalInfo({data, onInput, addImg, profilePic}) {
                         data-id={jobName.id}
                         onChange={onInput}
                         maxLength={40}
-                        className="flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
+                        className="w-[70%] p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                     <div>
                         <label 
                             htmlFor="file"
-                            className="flex-1 p-3 flex gap-1 items-center bg-white text-darkCop font-semibold rounded-xl cursor-pointer transition shadow-unpressed active:shadow-pressed active:scale-95 hover:shadow-pressed"
+                            className=" p-1 md:p-3 flex gap-1 items-center bg-white text-darkCop font-semibold rounded-xl cursor-pointer transition shadow-unpressed active:shadow-pressed active:scale-95 hover:shadow-pressed"
                         >
                             <i className='bx bxs-image-add text-2xl'></i>
                             <span>Add profile pic</span>

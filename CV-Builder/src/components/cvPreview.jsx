@@ -5,7 +5,8 @@ export default function PreviewCV({
   language,
   education,
   experience,
-  skills
+  skills,
+  reference
 }) {
   let fullName = info[0].text + " " + info[1].text;
   let job = info[2].text;
@@ -19,7 +20,7 @@ export default function PreviewCV({
 
   //continue defining the cv and take measures from figma eh!
   return (
-    <div className=" h-[29.7cm] w-[21cm]  font-jakarta text-rGrey shadow-resume">
+    <div className=" h-[29.7cm] w-[21cm]  font-jakarta text-rGrey shadow-resume" ref={reference}>
       <div id="header" className="w-full mb-[70px]">
         <div id="partial-to-header" className="bg-copper flex gap-4 px-9">
           <div id="profilePic" className="rounded-full w-[120px] h-[120px] translate-y-1/2 border-2 overflow-hidden border-darkCop bg-darkCop">
