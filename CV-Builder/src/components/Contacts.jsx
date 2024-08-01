@@ -6,9 +6,9 @@ export default function Contact({data, onInput}) {
     let linkedin = data[3];
     let github = data[4];
     return (
-        <div className="rounded-md px-6 py-5 bg-copper text-white flex flex-col gap-4 w-full">
-            <h2 className="flex gap-2 items-center text-2xl">
-                <i className='bx bxs-contact text-3xl'></i>
+        <div className="rounded-md px-6 max-[533px]:px-4 py-5 bg-copper text-white flex flex-col gap-4 w-full">
+            <h2 className="flex gap-2 items-center text-2xl max-[533px]:text-xl">
+                <i className='bx bxs-contact text-3xl max-[533px]:text-2xl'></i>
                 <span className="font-bold">Contacts</span> 
             </h2>
             <div className="flex flex-col gap-[9px]">
@@ -19,7 +19,7 @@ export default function Contact({data, onInput}) {
                     data-id={email.id}
                     onChange={onInput}
                     maxLength={28}
-                    className="flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
+                    className="flex-1 p-3 max-[533px]:py-2 max-[533px]:text-sm rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                 <input 
                     type="number" 
                     placeholder="Telephone Number"
@@ -27,7 +27,7 @@ export default function Contact({data, onInput}) {
                     data-id={number.id}
                     onChange={onInput}
                     maxLength={26}
-                    className="[&::-webkit-inner-spin-button]:appearance-none flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
+                    className="[&::-webkit-inner-spin-button]:appearance-none flex-1 p-3 max-[533px]:py-2 max-[533px]:text-sm rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                 <input 
                     type="text" 
                     placeholder="Location / Address"
@@ -35,8 +35,8 @@ export default function Contact({data, onInput}) {
                     data-id={address.id}
                     onChange={onInput}
                     maxLength={30}
-                    className="flex-1 p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
-                <div className="flex-1  flex  gap-[9px] items-center">
+                    className="flex-1 p-3 max-[533px]:py-2 max-[533px]:text-sm rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
+                <div className="flex-1  flex  gap-[9px] max-[533px]:gap-[6px] items-center">
                     <input
                         type="text" 
                         placeholder="Linkedin"
@@ -44,7 +44,7 @@ export default function Contact({data, onInput}) {
                         data-id={linkedin.id}
                         onChange={onInput}
                         maxLength={35}
-                        className="w-full p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
+                        className="w-full p-3 max-[533px]:py-2 max-[533px]:text-sm rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                     <input
                         type="text" 
                         placeholder="GitHub"
@@ -52,7 +52,7 @@ export default function Contact({data, onInput}) {
                         data-id={github.id}
                         onChange={onInput}
                         maxLength={35}
-                        className="w-full p-3 rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
+                        className="w-full p-3 max-[533px]:py-2 max-[533px]:text-sm rounded-xl outline-none bg-darkCop transition duration-300 ease-in-out focus:bg-inputFocus hover:bg-inputFocus" />
                 </div>
             </div>
         </div>

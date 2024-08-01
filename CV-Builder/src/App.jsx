@@ -284,14 +284,13 @@ function App() {
 
   return (
     <>
-      {/* change the max and min w later  */}
-      <div className="max-w-full 2xl:max-w-[750px] px-6 py-6 font-poppins flex flex-col gap-6">
-        <div className="rounded-md bg-copper px-6 py-4 text-white flex flex-col w-full gap-1">
+      <div className="max-w-full 2xl:max-w-[750px] px-6 max-[533px]:px-4 py-6 font-poppins flex flex-col gap-6">
+        <div className="rounded-md bg-copper px-6 max-[533px]:px-4 py-4 text-white flex flex-col w-full gap-1">
           <div className="flex justify-between items-center">
-            <h1 className="text-3xl font-bold text-left">
+            <h1 className="text-3xl max-[533px]:text-2xl font-bold text-left">
               ResuMe.<span className="font-light">cv</span>  
             </h1>
-            <div className="flex gap-4 text-2xl ">
+            <div className="flex gap-4 text-2xl max-[533px]:text-xl ">
             <button 
               data-tooltip-id="PDFDownload"
               data-tooltip-content="Download Resume in PDF"
@@ -330,9 +329,9 @@ function App() {
               </button> 
             </div>
           </div>
-            <div className="flex rounded-xl px-3 py-2 self-center text-sm gap-1 bg-darkCop">
+            <div className="flex rounded-xl px-3 py-2 max-[533px]:py-1 self-center text-sm max-[533px]:text-xs max-[533px]:mt-2 gap-1 bg-darkCop">
               <span>SimoneMorella</span> 
-              <a href="https://github.com/SimoneMorella" className="transform hover:rotate-45 transition ease-out duration-300 flex items-center text-lg"><i className='bx bxl-github' id="gitico"></i></a>
+              <a href="https://github.com/SimoneMorella" className="transform hover:rotate-45 transition ease-out duration-300 flex items-center max-[533px]:text-base text-lg"><i className='bx bxl-github' id="gitico"></i></a>
               <span>{new Date().getFullYear()}</span>
             </div>
         </div>
@@ -344,7 +343,7 @@ function App() {
         <Experience data={experience} onInput={handleExperience} addExp={addExperience}/>
         <Skills data={skills} onInput={handleSkills} addSkill={addSkill}/>
       </div>
-      <div className="py-6 static 2xl:sticky top-0 h-fit scale-[0.49] sm:scale-75 md:scale-[0.85] lg:scale-100 ">
+      <div className="py-6 static 2xl:sticky top-0 h-fit scale-[0.49] -my-52 min-[557px]:scale-[0.66] min-[557px]:-my-32 sm:scale-75 sm:-my-10 md:scale-[0.85] lg:scale-100 lg:-my-0">
         <PreviewCV 
           info={info}
           profilePic={profilePic}
