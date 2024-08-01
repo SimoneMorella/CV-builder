@@ -11,6 +11,7 @@ import { getFlagImg } from "./utilities/utilities.js";
 import { Tooltip } from "react-tooltip";
 import SampleCV from "./components/SampleCV.jsx";
 import { useReactToPrint } from "react-to-print";
+import 'boxicons/css/boxicons.min.css';
 
 // focus later on the equilibrium between the two parts
 
